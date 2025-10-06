@@ -104,7 +104,7 @@ const ProductCard = ({ product }: { product: Product }) => (
     <CardHeader>
       <div className="flex items-start justify-between">
         <div className="space-y-1">
-          <CardTitle className="text-xl">{product.name}</CardTitle>
+          <CardTitle className="text-base">{product.name}</CardTitle>
           {product.brand && (
             <Badge variant="secondary" className="font-normal">
               {product.brand}
