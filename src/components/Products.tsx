@@ -16,6 +16,7 @@ interface Product {
 }
 
 const dayOldChicks: Product[] = [
+  // Cockerel Chicks - Different Brands
   {
     id: "1",
     name: "Cockerel Chicks",
@@ -27,43 +28,119 @@ const dayOldChicks: Product[] = [
   },
   {
     id: "2",
-    name: "Broiler Chicks",
+    name: "Cockerel Chicks",
     brand: "Agrited",
-    price: "₦28,000",
+    price: "₦24,500",
     available: true,
     packSize: "Pack of 51 (50 + 1 free)",
-    description: "Premium broiler chicks for fast growth",
+    description: "Premium cockerel chicks from Agrited",
   },
   {
     id: "3",
-    name: "Boiler Chicks",
+    name: "Cockerel Chicks",
+    brand: "Sayed",
+    price: "₦25,500",
+    available: true,
+    packSize: "Pack of 51 (50 + 1 free)",
+    description: "Quality cockerel chicks from Sayed",
+  },
+  {
+    id: "4",
+    name: "Cockerel Chicks",
+    brand: "Amo",
+    price: "₦24,000",
+    available: false,
+    packSize: "Pack of 51 (50 + 1 free)",
+    description: "Reliable cockerel chicks from Amo",
+  },
+  
+  // Broiler Chicks - Different Brands
+  {
+    id: "5",
+    name: "Broiler Chicks",
+    brand: "Chi",
+    price: "₦28,000",
+    available: true,
+    packSize: "Pack of 51 (50 + 1 free)",
+    description: "Fast-growing broiler chicks from Chi",
+  },
+  {
+    id: "6",
+    name: "Broiler Chicks",
+    brand: "Agrited",
+    price: "₦28,500",
+    available: true,
+    packSize: "Pack of 51 (50 + 1 free)",
+    description: "Premium broiler chicks from Agrited",
+  },
+  {
+    id: "7",
+    name: "Broiler Chicks",
     brand: "Sayed",
     price: "₦27,500",
+    available: true,
+    packSize: "Pack of 51 (50 + 1 free)",
+    description: "Quality broiler chicks from Sayed",
+  },
+  {
+    id: "8",
+    name: "Broiler Chicks",
+    brand: "Amo",
+    price: "₦27,000",
+    available: true,
+    packSize: "Pack of 51 (50 + 1 free)",
+    description: "Excellent broiler chicks from Amo",
+  },
+  
+  // Boiler Chicks - Different Brands
+  {
+    id: "9",
+    name: "Boiler Chicks",
+    brand: "Chi",
+    price: "₦26,500",
     available: false,
+    packSize: "Pack of 51 (50 + 1 free)",
+    description: "Robust boiler chicks from Chi",
+  },
+  {
+    id: "10",
+    name: "Boiler Chicks",
+    brand: "Agrited",
+    price: "₦27,000",
+    available: true,
+    packSize: "Pack of 51 (50 + 1 free)",
+    description: "Premium boiler chicks from Agrited",
+  },
+  {
+    id: "11",
+    name: "Boiler Chicks",
+    brand: "Sayed",
+    price: "₦26,000",
+    available: true,
     packSize: "Pack of 51 (50 + 1 free)",
     description: "Quality boiler chicks from Sayed",
   },
   {
-    id: "4",
-    name: "Mixed Breed Chicks",
+    id: "12",
+    name: "Boiler Chicks",
     brand: "Amo",
-    price: "₦26,000",
-    available: true,
+    price: "₦25,500",
+    available: false,
     packSize: "Pack of 51 (50 + 1 free)",
-    description: "Versatile mixed breed chicks",
+    description: "Reliable boiler chicks from Amo",
   },
 ];
 
 const turkeys: Product[] = [
   {
-    id: "5",
+    id: "13",
     name: "Local Turkeys",
     price: "₦15,000",
     available: true,
     description: "Day-old local turkey breeds",
   },
   {
-    id: "6",
+    id: "14",
     name: "Imported Turkeys",
     price: "₦22,000",
     available: true,
@@ -73,14 +150,14 @@ const turkeys: Product[] = [
 
 const otherBirds: Product[] = [
   {
-    id: "7",
+    id: "15",
     name: "Ducks",
     price: "₦3,500",
     available: true,
     description: "Healthy day-old ducks",
   },
   {
-    id: "8",
+    id: "16",
     name: "Geese",
     price: "₦4,000",
     available: false,
@@ -90,7 +167,7 @@ const otherBirds: Product[] = [
 
 const produce: Product[] = [
   {
-    id: "9",
+    id: "17",
     name: "Fresh Tomatoes",
     price: "₦8,000",
     available: true,
