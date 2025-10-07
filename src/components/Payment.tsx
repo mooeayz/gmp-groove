@@ -64,9 +64,11 @@ export const Payment = () => {
                     Quality products with secure payment and reliable delivery
                   </p>
                 </div>
-                <Button variant="hero" size="lg" className="group whitespace-nowrap">
-                  Proceed to Payment
-                  <CreditCard className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                <Button variant="hero" size="lg" className="group whitespace-nowrap" asChild>
+                  <a href="#products">
+                    Start Shopping
+                    <CreditCard className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                  </a>
                 </Button>
               </div>
             </CardContent>

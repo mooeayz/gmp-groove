@@ -4,42 +4,11 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Minus, Plus, Trash2, ShoppingBag } from "lucide-react";
-import { useState } from "react";
-
-interface CartItem {
-  id: string;
-  name: string;
-  price: number;
-  quantity: number;
-  packSize?: string;
-}
+import { useCart } from "@/contexts/CartContext";
 
 export default function Cart() {
-  const [cartItems, setCartItems] = useState<CartItem[]>([
-    {
-      id: "1",
-      name: "Cockerel Chicks - Chi",
-      price: 25000,
-      quantity: 1,
-      packSize: "Pack of 51 (50 + 1 free)",
-    },
-  ]);
-
-  const updateQuantity = (id: string, change: number) => {
-    setCartItems((items) =>
-      items.map((item) =>
-        item.id === id
-          ? { ...item, quantity: Math.max(1, item.quantity + change) }
-          : item
-      )
-    );
-  };
-
-  const removeItem = (id: string) => {
-    setCartItems((items) => items.filter((item) => item.id !== id));
-  };
-
-  const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const { cartItems, updateQuantity, removeItem, getTotal } = useCart();
+  const total = getTotal();
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -74,7 +43,9 @@ export default function Cart() {
                       <CardHeader>
                         <div className="flex items-start justify-between">
                           <div>
-                            <CardTitle className="text-lg">{item.name}</CardTitle>
+                            <CardTitle className="text-lg">
+                              {item.name}{item.brand ? ` - ${item.brand}` : ""}
+                            </CardTitle>
                             {item.packSize && (
                               <p className="text-sm text-muted-foreground mt-1">
                                 {item.packSize}
@@ -142,9 +113,11 @@ export default function Cart() {
                     </div>
                   </CardContent>
                   <CardFooter className="flex flex-col gap-3">
-                    <Button className="w-full" size="lg">
-                      Proceed to Checkout
-                    </Button>
+                    <Link to="/checkout" className="w-full">
+                      <Button className="w-full bg-accent hover:bg-accent/90" size="lg">
+                        Proceed to Checkout
+                      </Button>
+                    </Link>
                     <Link to="/" className="w-full">
                       <Button variant="outline" className="w-full">
                         Continue Shopping

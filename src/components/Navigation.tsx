@@ -2,9 +2,13 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { useCart } from "@/contexts/CartContext";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { getTotalItems } = useCart();
+  const totalItems = getTotalItems();
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -50,9 +54,14 @@ export const Navigation = () => {
               Availability
             </button>
             <Link to="/cart">
-              <Button variant="outline" size="sm" className="gap-2">
+              <Button variant="outline" size="sm" className="gap-2 relative">
                 <ShoppingCart className="w-4 h-4" />
                 Cart
+                {totalItems > 0 && (
+                  <Badge className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 bg-accent">
+                    {totalItems}
+                  </Badge>
+                )}
               </Button>
             </Link>
           </div>
@@ -95,9 +104,14 @@ export const Navigation = () => {
                 Availability
               </button>
               <Link to="/cart" onClick={() => setIsOpen(false)}>
-                <Button variant="outline" size="sm" className="gap-2 w-full">
+                <Button variant="outline" size="sm" className="gap-2 w-full relative">
                   <ShoppingCart className="w-4 h-4" />
                   Cart
+                  {totalItems > 0 && (
+                    <Badge className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 bg-accent">
+                      {totalItems}
+                    </Badge>
+                  )}
                 </Button>
               </Link>
             </div>

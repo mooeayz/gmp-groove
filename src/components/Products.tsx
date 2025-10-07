@@ -4,6 +4,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "lucide-react";
+import { useCart } from "@/contexts/CartContext";
+import { toast } from "@/hooks/use-toast";
 
 interface Product {
   id: string;
@@ -176,46 +178,66 @@ const produce: Product[] = [
   },
 ];
 
-const ProductCard = ({ product }: { product: Product }) => (
-  <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-    <CardHeader>
-      <div className="flex items-start justify-between">
-        <div className="space-y-1">
-          <CardTitle className="text-base">{product.name}</CardTitle>
-          {product.brand && (
-            <Badge variant="secondary" className="font-normal">
-              {product.brand}
-            </Badge>
+const ProductCard = ({ product }: { product: Product }) => {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    const priceNum = parseInt(product.price.replace(/[₦,]/g, ""));
+    addToCart({
+      id: product.id,
+      name: product.name,
+      brand: product.brand,
+      price: priceNum,
+      packSize: product.packSize,
+    });
+    toast({
+      title: "Added to cart!",
+      description: `${product.name}${product.brand ? ` - ${product.brand}` : ""} has been added to your cart.`,
+    });
+  };
+
+  return (
+    <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+      <CardHeader>
+        <div className="flex items-start justify-between">
+          <div className="space-y-1">
+            <CardTitle className="text-base">{product.name}</CardTitle>
+            {product.brand && (
+              <Badge variant="secondary" className="font-normal">
+                {product.brand}
+              </Badge>
+            )}
+          </div>
+          <Badge 
+            variant={product.available ? "default" : "destructive"}
+            className={product.available ? "bg-primary" : "bg-accent"}
+          >
+            {product.available ? "Available" : "Not Available"}
+          </Badge>
+        </div>
+        <CardDescription>{product.description}</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <div className="space-y-2">
+          <p className="text-3xl font-bold text-primary">{product.price}</p>
+          {product.packSize && (
+            <p className="text-sm text-muted-foreground">{product.packSize}</p>
           )}
         </div>
-        <Badge 
-          variant={product.available ? "default" : "destructive"}
-          className={product.available ? "bg-primary" : "bg-accent"}
+      </CardContent>
+      <CardFooter>
+        <Button 
+          className="w-full group-hover:scale-105 transition-transform bg-accent hover:bg-accent/90" 
+          disabled={!product.available}
+          onClick={handleAddToCart}
         >
-          {product.available ? "Available" : "Not Available"}
-        </Badge>
-      </div>
-      <CardDescription>{product.description}</CardDescription>
-    </CardHeader>
-    <CardContent>
-      <div className="space-y-2">
-        <p className="text-3xl font-bold text-primary">{product.price}</p>
-        {product.packSize && (
-          <p className="text-sm text-muted-foreground">{product.packSize}</p>
-        )}
-      </div>
-    </CardContent>
-    <CardFooter>
-      <Button 
-        className="w-full group-hover:scale-105 transition-transform" 
-        disabled={!product.available}
-      >
-        <ShoppingCart className="w-4 h-4 mr-2" />
-        {product.available ? "Add to Order" : "Out of Stock"}
-      </Button>
-    </CardFooter>
-  </Card>
-);
+          <ShoppingCart className="w-4 h-4 mr-2" />
+          {product.available ? "Add to Order" : "Out of Stock"}
+        </Button>
+      </CardFooter>
+    </Card>
+  );
+};
 
 export const Products = () => {
   const [activeTab, setActiveTab] = useState("chicks");
