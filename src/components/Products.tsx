@@ -227,7 +227,11 @@ const ProductCard = ({ product }: { product: Product }) => {
       </CardContent>
       <CardFooter>
         <Button 
-          className="w-full group-hover:scale-105 transition-transform bg-accent hover:bg-accent/90" 
+          className={`w-full group-hover:scale-105 transition-transform ${
+            product.available 
+              ? "bg-yellow text-yellow-foreground hover:bg-yellow/90" 
+              : "bg-accent text-accent-foreground"
+          }`}
           disabled={!product.available}
           onClick={handleAddToCart}
         >
