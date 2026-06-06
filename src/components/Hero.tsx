@@ -26,7 +26,7 @@ export const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button variant="hero" size="lg" className="group">
+              <Button size="lg" className="group bg-yellow text-yellow-foreground hover:bg-yellow/90 hover:scale-105 shadow-lg hover:shadow-xl text-base font-semibold">
                 Shop Day-Old Chicks
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
