@@ -259,17 +259,17 @@ export const Products = () => {
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-4 mb-12 h-auto p-1 bg-card shadow-md">
-            <TabsTrigger value="chicks" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-3">
+          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-2 sm:grid-cols-4 mb-12 h-auto p-1 bg-card shadow-md gap-1">
+            <TabsTrigger value="chicks" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-3 px-2 text-xs sm:text-sm whitespace-normal text-center leading-tight h-auto min-h-[3rem]">
               Day-Old Chicks
             </TabsTrigger>
-            <TabsTrigger value="turkeys" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-3">
+            <TabsTrigger value="turkeys" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-3 px-2 text-xs sm:text-sm whitespace-normal text-center leading-tight h-auto min-h-[3rem]">
               Turkeys
             </TabsTrigger>
-            <TabsTrigger value="birds" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-3">
+            <TabsTrigger value="birds" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-3 px-2 text-xs sm:text-sm whitespace-normal text-center leading-tight h-auto min-h-[3rem]">
               Ducks & Geese
             </TabsTrigger>
-            <TabsTrigger value="produce" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-3">
+            <TabsTrigger value="produce" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-3 px-2 text-xs sm:text-sm whitespace-normal text-center leading-tight h-auto min-h-[3rem]">
               Farm Produce
             </TabsTrigger>
           </TabsList>

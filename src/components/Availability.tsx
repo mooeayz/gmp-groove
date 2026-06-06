@@ -47,8 +47,8 @@ export const Availability = () => {
                 </div>
                 <h3 className="text-xl font-bold">Older Chicks</h3>
                 <div className="space-y-2">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 rounded-full">
-                    <span className="font-semibold" style={{ color: "hsl(48, 100%, 40%)" }}>Any Day</span>
+                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-yellow/10 rounded-full">
+                    <span className="font-semibold text-yellow">Any Day</span>
                   </div>
                 </div>
                 <p className="text-sm text-muted-foreground">
